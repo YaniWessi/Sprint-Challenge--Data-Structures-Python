@@ -3,7 +3,7 @@ class RingBuffer:
         self.head = value
         self.tail = value
         self.full = capacity
-        self.length = capacity if node is not None
+        self.length = capacity if capacitty is not 0
 
     def append(self, item):
         # current node
