@@ -12,9 +12,11 @@ class Node:
     def set_next(self, new_next):
         self.next_node = new_next
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def add_to_head(self, value):
         node = Node(value)
