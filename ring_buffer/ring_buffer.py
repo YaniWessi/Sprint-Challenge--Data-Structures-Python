@@ -31,29 +31,25 @@
 
 #              self.tail = new_node
 
-class Buffer:
-    def __init__(self, capacity=3):
+class RingBuffer:
+    def __init__(self, capacity):
         self.capacity = capacity
         self.current = 0
         self.storage = []
 
     def append(self, item):
-        self.current += 1
-        self.storage[self.current] = item
+        if len(self.storage) < self.capacity:
+            self.storage.append(item)
 
-        if self.current == 0:
+        else:
+            # [a, b, c, d] new item is e
+            # self.storage[0] = e
+            # item is e and is going to replace a. a is at index 0 and is the oldest so we need to replace that with e thenewest
+            self.storage[self.current] = item
             self.current += 1
-        elif self.current == self.capacity:
-            self.current = self.current[0]
+
+            if self.current == self.capacity:
+                self.current = 0
 
     def get(self):
         return self.storage
-
-
-list = [a, b, c, d e, f]
-
-list_2 = [d, e, f]
-
-+=1
-
-self.current = 0

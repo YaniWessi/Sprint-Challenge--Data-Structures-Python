@@ -14,15 +14,21 @@ duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
 for name_1 in names_1:
-    if name_1 not in names_2:
-        duplicates.append(names_2)
+    if name_1 in names_2:
+        duplicates.append(name_1)
     # for name_2 in names_2:
     #     if name_1 == name_2:
     #         duplicates.append(name_1)
 
 end_time = time.time()
-print(len(duplicates), " duplicates:\n\n", ', '.join(duplicates))
-print("runtime: ", end_time - start_time, " seconds")
+
+print("{0} duplicates:\n\n{1}\n\n".format(
+    len(duplicates), ', '.join(duplicates)))
+print("runtime: {} seconds".format(end_time - start_time))
+# print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
+# print(f"runtime: {end_time - start_time} seconds")
+# print(len(duplicates), " duplicates:\n\n", ', '.join(duplicates))
+# print("runtime: ", end_time - start_time, " seconds")
 # print(duplicates)
 # ---------- Stretch Goal -----------
 # Python has built-in tools that allow for a very efficient approach to this problem
