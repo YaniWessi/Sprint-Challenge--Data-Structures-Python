@@ -16,7 +16,6 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
-        self.tail = None
 
     def add_to_head(self, value):
         node = Node(value)
@@ -40,9 +39,13 @@ class LinkedList:
 
         return False
 
-    def reverse_list(self, node):
-        if self.tail:
-             return
-         else:
-             self.reverse_list(next_node)
-             print(node)
+    def reverse_list(self, node, prev):
+        if node and node.next_node:
+            self.reverse_list(node.next_node, node)
+        else:
+            self.head = node
+
+        if prev:
+            node.set_next(prev)
+
+    # just a comment to push
